@@ -1,5 +1,7 @@
 :root {
     --default-color: #3fd0d4;
+    --backgroundURL1: "";
+    --backgroundURL2: "";
 }
 
 * {
@@ -48,5 +50,14 @@ html {
     }
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

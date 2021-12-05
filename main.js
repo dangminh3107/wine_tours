@@ -11,6 +11,47 @@ const navSubItems = Array.from(document.querySelectorAll('.head-body-navigation-
 const language = document.querySelector('.language')
 const megaMenu = document.querySelector('.mega-menu')
 const subMenuItem = Array.from(document.querySelectorAll('.head-body-navigation-item-sub-page'))
+const imgContainLeft = document.querySelector('.slider-left-contain')
+const imgContainRight = document.querySelector('.slider-right-contain')
+const sliderTitle = Array.from(document.querySelectorAll('.slider-title-img'))
+const controlLeft = document.querySelector('.slider-control-left')
+const controlRight = document.querySelector('.slider-control-right')
+
+const imgLeft = [
+    {
+        path: './assets/img/travel-slide-1.jpg'
+    },
+    {
+        path: './assets/img/travel-slide-3.jpg'
+    },
+    {
+        path: './assets/img/travel-slide-5.jpg'
+    }
+]
+
+const imgRight = [
+    {
+        path: './assets/img/travel-slide-2.jpg'
+    },
+    {
+        path: './assets/img/travel-slide-4.jpg'
+    },
+    {
+        path: './assets/img/travel-slide-6.jpg'
+    }
+]
+
+const imgTitle = [
+    {
+        path: './assets/img/travel-slide-img-1.png'
+    },
+    {
+        path: './assets/img/travel-slide-img-1.png'
+    },
+    {
+        path: './assets/img/travel-slide-img-2.png'        
+    }
+]
 
 user.onclick = function() {
     if (!modal.classList.contains('active')) {
@@ -91,3 +132,36 @@ window.onresize = () => {
         })
     }
 }
+
+let slideIndex = 0;
+const n = imgLeft.length;
+controlLeft.onclick = () => {
+    slideIndex--;
+    if (slideIndex < 0) slideIndex = n - 1;
+    imgContainLeft.style.background = `center / cover no-repeat url('${imgLeft[slideIndex].path}')`
+    imgContainRight.style.background = `center / cover no-repeat url('${imgRight[slideIndex].path}')`
+    sliderTitle.forEach((title, idx) => {
+        if (idx !== slideIndex) { 
+            title.classList.remove('active')
+        }
+    })
+    sliderTitle[slideIndex].classList.add('active')
+}
+
+controlRight.onclick = () => {
+    slideIndex++;
+    if (slideIndex > n - 1) slideIndex = 0;
+    imgContainLeft.style.background = `center / cover no-repeat url('${imgLeft[slideIndex].path}')`
+    imgContainRight.style.background = `center / cover no-repeat url('${imgRight[slideIndex].path}')`
+    sliderTitle.forEach((title, idx) => {
+        if (idx !== slideIndex) { 
+            title.classList.remove('active')
+        }
+    })
+    sliderTitle[slideIndex].classList.add('active')
+}
+
+setInterval(()=> {
+    controlRight.click();
+},5000)
+
