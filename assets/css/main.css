@@ -634,6 +634,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr;
     grid-gap: 30px;
+    margin-top: 20px;
 }
 
 .slider-left {
@@ -646,7 +647,7 @@
 
 .slider-left-contain,
 .slider-right-contain {
-    padding-top: 93%;
+    padding-top: 100%;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -659,17 +660,21 @@
 
 .slider-right-contain {
     transition: 0.5s linear 0.4s;
-    padding-top: 186%;
+    padding-top: 200%;
 }
 
 .slider-left-title {
     position: absolute;
-    width: 432px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .slider-title-img {
     display: none;
     opacity: 0;
+    height: 50%;
+    width: 60%;
 }
 
 .slider-title-img.active {
