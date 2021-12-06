@@ -16,6 +16,11 @@ const imgContainRight = document.querySelector('.slider-right-contain')
 const sliderTitle = Array.from(document.querySelectorAll('.slider-title-img'))
 const controlLeft = document.querySelector('.slider-control-left')
 const controlRight = document.querySelector('.slider-control-right')
+const chartGroup = document.querySelector('.section-statistic-chart-group')
+const slideChart = document.querySelectorAll('.section-statistic-chart-slide')
+const chartPercent = document.querySelectorAll('.section-statistic-chart-percent')
+const archievementBlock = document.querySelector('.grid-achievement')
+const archieveNumber = document.querySelectorAll('.grid-achievement-number')
 
 const imgLeft = [
     {
@@ -52,6 +57,8 @@ const imgTitle = [
         path: './assets/img/travel-slide-img-2.png'        
     }
 ]
+
+const percent = [76, 92, 86]
 
 user.onclick = function() {
     if (!modal.classList.contains('active')) {
@@ -165,3 +172,58 @@ setInterval(()=> {
     controlRight.click();
 },5000)
 
+let isActive1 = false;
+let isActive2 = false;
+const charGroupTop = chartGroup.offsetTop;
+const archievementBlockTop = archievementBlock.offsetTop;
+const speed = 2000;
+const min = 45;
+
+window.onscroll = (e) => {
+    if (!isActive1) {
+        if ((document.documentElement.scrollTop + window.innerHeight) >= charGroupTop) {
+            isActive1 = true;
+            slideChart.forEach((slide, index) => {
+                slide.classList.add('active')
+            })
+
+            chartPercent.forEach(chart => {
+                const updateCount = () => {
+                    const target = +chart.getAttribute('data-target');
+                    let percentSymbol  = chart.innerText.indexOf('%');
+                    const count = +chart.innerText.slice(0,percentSymbol);
+
+                    const inc = target / speed;
+                    if (count < target) {
+                        chart.innerText = Math.ceil(count + inc) + '%';
+                        setTimeout(updateCount, 25);
+                    } else {
+                        chart.innerText = target + '%';
+                    }
+                }
+                updateCount();
+            })
+        }
+    }
+    if (!isActive2) {
+        if ((document.documentElement.scrollTop + window.innerHeight) >= archievementBlockTop) {
+            isActive2 = true;
+
+            archieveNumber.forEach(chart => {
+                const target = +chart.getAttribute('data-target');
+                const updateCount = () => {
+                    const count = +chart.innerText;
+
+                    const inc = target / min;
+                    if (count < target) {
+                        chart.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 80);
+                    } else {
+                        chart.innerText = target;
+                    }
+                }
+                updateCount();
+            })
+        }
+    }
+}

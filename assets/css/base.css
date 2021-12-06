@@ -17,6 +17,11 @@ html {
     box-sizing: border-box;
 }
 
+.grid {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
 @keyframes fadeInText {
     0% {
         opacity: 0;

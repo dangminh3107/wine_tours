@@ -690,7 +690,6 @@
     position: relative;
 }
 
-
 .slider-control-left,
 .slider-control-right {
     position: absolute;
@@ -719,4 +718,225 @@
 .slider-control-right:hover {
     background-color: var(--default-color);
     color: #fff;
+}
+
+.section-content {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.section-statistic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.6rem;
+    width: 640px;
+    margin-left: 20px;
+    margin-right: 100px;
+}
+
+.section-statistic-heading {
+    font-size: 4rem;
+    line-height: 4rem;
+    font-weight: 600;
+}
+
+.section-statistic-description {
+    margin: 20px 0 30px;
+    line-height: 3rem;
+}
+
+.section-statistic-chart {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 5px 0;
+}
+
+.section-statistic-chart-heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-statistic-chart-row {
+    width: 100%;
+    height: 24px;
+    background-color: #f0ede8;
+    margin: 10px 0 20px;
+    position: relative;
+}
+
+.section-statistic-chart-slide {
+    position: absolute;
+    width: 24px;
+    height: 100%;
+    background-color: var(--default-color);
+    transition: 2.5s;
+}
+
+.section-statistic-chart-slide.slide-1.active {
+    width: 76%;
+}
+
+.section-statistic-chart-slide.slide-2.active {
+    width: 92%;
+}
+
+.section-statistic-chart-slide.slide-3.active {
+    width: 86%;
+}
+
+.section-statistic-chart-slide::after {
+    content: '';
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    background-color: #3abdc1;
+    right: 0;
+}
+
+.section-statistic-chart-slide::before {
+    content: '';
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    background-color: #3abdc1;
+    left: 0;
+}
+
+.panel {
+    width: 100%;
+}
+
+.panel-img {
+    width: 100%;
+}
+
+.body-content {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.7rem;
+    line-height: 2.8rem;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.body-content-heading {
+    font-size: 6.5rem;
+    line-height: 6.5rem;
+    font-weight: 600;
+}
+
+.body-content-text-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 555px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.grid-image-contain {
+    display: flex;
+    justify-content: center;
+}
+
+.grid-image {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 30px;
+}
+
+.grid-image-item {
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+    position: relative;
+}
+
+
+.grid-image-item-contain {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+.grid-image-item-contain:after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: .7;
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 57%,rgba(0,0,0,.67) 99%,rgba(0,0,0,.6) 100%);
+    transition: .5s;
+}
+
+.grid-image-item-contain:hover::after{
+    opacity: 1;
+}
+
+.grid-image-item-contain:hover .grid-image-item {
+    transform: scale(1.03);
+}
+
+.grid-image-item-contain:nth-child(3) {
+    grid-row: 1 / 3;
+    grid-column-start: 3;
+    height: 100%;
+}
+
+.grid-image-item-title-and-price {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.grid-achievement {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, 284px);
+    grid-template-rows: repeat(auto, 284px);
+    margin: 130px 0;
+}
+
+.grid-achievement-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.grid-achievement-number {
+    font-size: 6.5rem;
+    line-height: 6.5rem;
+    font-weight: 600;
+}
+
+.grid-achievement-title {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    font-weight: 600;
+    padding: 20px 0 10px;
 }
