@@ -15,11 +15,40 @@
     align-items: center;
     font-size: 1.3rem;
     font-weight: 500;
+    justify-content: space-between;
+}
+
+.contact-info-contain {
+    display: flex;
+    align-items: center;
 }
 
 .contact-info-item {
     margin-left: 20px;
     cursor: pointer;
+}
+
+.contact-info-text {
+    transition: 0.4s;
+}
+
+.contact-info-item:hover .contact-info-text {
+    color: var(--default-color);
+}
+
+.contact-info-social {
+    display: flex;
+    padding-right: 20px;
+}
+
+.contact-info-social > i {
+    padding: 0 8px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.contact-info-social > i:hover {
+    color: var(--default-color);
 }
 
 .icon-mail {
@@ -807,11 +836,11 @@
     left: 0;
 }
 
-.panel {
+.banner {
     width: 100%;
 }
 
-.panel-img {
+.banner-img {
     width: 100%;
 }
 
@@ -939,4 +968,323 @@
     line-height: 1.8rem;
     font-weight: 600;
     padding: 20px 0 10px;
+}
+
+.banner-video {
+    width: 100%;
+    height: 512px;
+    cursor: pointer;
+}
+
+.banner-video-contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-video-img {
+    height: 100%;
+    width: 100%;
+}
+
+.banner-video-btn {
+    font-size: 2rem;
+    line-height: 2rem;
+    position: absolute;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background-color: var(--default-color);
+    border-radius: 50%;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.banner-video:hover .banner-video-btn {
+    padding: 30px;
+}
+
+.video-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    display: none;
+    animation: fadeOutModal 0.3s linear forwards; 
+    z-index: 999;
+}
+
+.video-content.active {
+    display: flex;
+    animation: fadeInModal 0.3s linear 0.2s forwards; 
+}
+
+.video-mp4 {
+    position: relative;
+    max-width: 960px;
+    max-height: 540px;
+    outline: none;
+}
+
+.tour-description {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.7rem;
+    padding: 160px 0 100px;
+}
+
+.tour-specific {
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-heading {
+    font-size: 4rem;
+    line-height: 4rem;
+    font-weight: 600;
+}
+
+.tour-des {
+    padding: 20px 0 30px;
+    max-width: 710px;
+    line-height: 3rem;
+}
+
+.tour-info {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, 312px);
+    grid-column-gap: 70px;
+    grid-row-gap: 30px;
+}
+
+.tour-info-item {
+    display: flex;
+    align-items: center;
+}
+
+.tour-info-des {
+    padding-left: 30px;
+    line-height: 2.5rem;
+}
+
+.tour-description-picture {
+    padding-right: 50px;
+}
+
+.tour-description-img {
+    height: 100%;
+}
+
+.footer {
+    background: #212121;
+}
+
+.footer-contain {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: #fff;
+    padding: 106px 0 78px;
+}
+
+.footer-item-contain {
+    display: flex;
+    flex: 50%;
+    justify-content: space-between;
+}
+
+.footer-item {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-item:last-child {
+    margin-left: 20px;
+}
+
+.footer-item-contain:first-child {
+    margin-right: 40px;
+}
+
+.footer-logo {
+    height: 84px;
+    width: 263px;
+}
+
+.footer-item-des-logo {
+    font-size: 1.7rem;
+    line-height: 3rem;
+}
+
+.footer-item-des-logo,
+.footer-item-des,
+.footer-posts-title {
+    margin: 20px 0;
+    color: #989898;
+}
+
+.footer-posts-title {
+    margin-top: 0;
+}
+
+.footer-item-des {
+    line-height: 2.5rem;
+}
+
+.footer-contact {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.footer-contact-text {
+    margin-left: 15px;
+}
+
+.footer-item-heading {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    font-weight: 600;
+}
+
+.footer-posts {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-posts-time {
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.footer-contact:hover,
+.footer-posts-time:hover {
+    color: var(--default-color);
+}
+
+.footer-item-input-box {
+    height: 50px;
+    width: 100%;
+    margin-bottom: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.footer-input-icon {
+    position: absolute;
+    padding-left: 19px;
+}
+
+.footer-item-input {
+    height: 100%;
+    width: 100%;
+    background-color: #595959;
+    padding-left: 45px;
+    outline: none;
+    color: #fff;
+    border: none;
+}
+
+.footer-item-input::placeholder {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.footer-btn {
+    padding: 14px 25px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: var(--default-color);
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-btn:hover {
+    color: #212121;
+    background-color: #fff;
+}
+
+.footer-bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 0;
+}
+
+.footer-bottom-text-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #989898;
+}
+
+.footer-bottom-text-link {
+    color: #fff;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.footer-bottom-text-link:hover {
+    color: var(--default-color);
+}
+
+.to-top-btn {
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+    margin: 40px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 5px #989898;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.to-top-btn:after {
+    content: 'TOP';
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--default-color);
+}
+
+.to-top-btn.active {
+    opacity: 1;
+    pointer-events: unset;
 }

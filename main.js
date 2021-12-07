@@ -21,6 +21,10 @@ const slideChart = document.querySelectorAll('.section-statistic-chart-slide')
 const chartPercent = document.querySelectorAll('.section-statistic-chart-percent')
 const archievementBlock = document.querySelector('.grid-achievement')
 const archieveNumber = document.querySelectorAll('.grid-achievement-number')
+const videoBanner = document.querySelector('.banner-video')
+const videoContent = document.querySelector('.video-mp4')
+const videoModal = document.querySelector('.video-content')
+const toTopBtn = document.querySelector('.to-top-btn')
 
 const imgLeft = [
     {
@@ -67,6 +71,14 @@ user.onclick = function() {
     modal.classList.toggle('active')
 }
 
+videoBanner.onclick = () => {
+    if (!videoModal.classList.contains('active')) {
+        videoModal.style.display = 'flex'
+        videoContent.load();
+    }
+    videoModal.classList.toggle('active')
+}
+
 modal.onclick = () => {
     if (modal.classList.contains('active')) {
         setTimeout(() => {modal.style.display = 'none'}, 300)
@@ -74,6 +86,15 @@ modal.onclick = () => {
     modal.classList.toggle('active')
 }
 modalContent.onclick = (e) => {e.stopPropagation()}
+
+videoModal.onclick = () => {
+    if (videoModal.classList.contains('active')) {
+        videoContent.pause();
+        setTimeout(() => {videoModal.style.display = 'none'}, 300)
+    }
+    videoModal.classList.toggle('active')
+}
+videoContent.onclick = (e) => {e.stopPropagation()}
 
 checkRadio.onclick = () => {
     inputRadio.checked = !inputRadio.checked;
@@ -217,7 +238,7 @@ window.onscroll = (e) => {
                     const inc = target / min;
                     if (count < target) {
                         chart.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 80);
+                        setTimeout(updateCount, 50);
                     } else {
                         chart.innerText = target;
                     }
@@ -226,4 +247,15 @@ window.onscroll = (e) => {
             })
         }
     }
+
+    if (document.documentElement.scrollTop >= 600) {
+        toTopBtn.classList.add('active');
+    }
+    else {
+        toTopBtn.classList.remove('active');
+    }
+}
+
+toTopBtn.onclick = () => {
+    window.scrollTo(0,0)
 }
